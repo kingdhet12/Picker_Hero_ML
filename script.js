@@ -139,6 +139,11 @@ const heroes = [
 ];
 
 // ==============================
+// Role Tim untuk 5 Player
+// ==============================
+const teamRoles = ["Jungle", "Mid Lane", "Gold Lane", "EXP Lane", "Roam"];
+
+// ==============================
 // Elemen DOM
 // ==============================
 const siteHeader = document.getElementById("siteHeader");
@@ -196,6 +201,18 @@ function getRoleColor(role) {
   if (role.includes("Marksman")) return "#ffd166";
   if (role.includes("Support")) return "#6dffb8";
   return "#f6c85f";
+}
+
+function createHeroSlug(name) {
+  return name
+    .toLowerCase()
+    .replace(/[\.'']/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function getHeroImagePath(hero) {
+  return `assets/heroes/${createHeroSlug(hero.name)}.png`;
 }
 
 // ==============================
@@ -266,14 +283,18 @@ function getPlayerNames() {
 }
 
 function setCardLoading(card, playerName, index) {
+  const image = card.querySelector(".player-card__image");
+
   card.classList.remove("is-picked", "reveal-result");
   card.classList.add("is-shuffling");
   card.querySelector(".player-card__avatar").textContent = `P${index + 1}`;
+  card.querySelector(".player-card__lane").textContent = teamRoles[index];
   card.querySelector(".player-card__name").textContent = playerName;
   card.querySelector(".player-card__hero").textContent = "Shuffling...";
   card.querySelector(".player-card__role").textContent = "Choosing";
-  card.querySelector(".player-card__image").src = "assets/heroes/hero-placeholder.svg";
-  card.querySelector(".player-card__image").alt = "Hero sedang diacak";
+  image.onerror = null;
+  image.src = "assets/heroes/hero-placeholder.svg";
+  image.alt = "Hero sedang diacak";
 }
 
 function setCardResult(card, playerName, hero, index) {
@@ -283,10 +304,15 @@ function setCardResult(card, playerName, hero, index) {
   void card.offsetWidth;
 
   card.querySelector(".player-card__avatar").textContent = getInitials(playerName) || `P${index + 1}`;
+  card.querySelector(".player-card__lane").textContent = teamRoles[index];
   card.querySelector(".player-card__name").textContent = playerName;
   card.querySelector(".player-card__hero").textContent = hero.name;
   card.querySelector(".player-card__role").textContent = hero.role;
-  image.src = createHeroPortrait(hero);
+  image.onerror = () => {
+    image.onerror = null;
+    image.src = createHeroPortrait(hero);
+  };
+  image.src = getHeroImagePath(hero);
   image.alt = `Hero ${hero.name}`;
 
   card.classList.add("is-picked", "reveal-result");
@@ -296,13 +322,17 @@ function resetCards() {
   const playerNames = getPlayerNames();
 
   playerCards.forEach((card, index) => {
+    const image = card.querySelector(".player-card__image");
+
     card.classList.remove("is-shuffling", "is-picked", "reveal-result");
     card.querySelector(".player-card__avatar").textContent = `P${index + 1}`;
+    card.querySelector(".player-card__lane").textContent = teamRoles[index];
     card.querySelector(".player-card__name").textContent = playerNames[index] || `Player ${index + 1}`;
     card.querySelector(".player-card__hero").textContent = "Belum Dipilih";
-    card.querySelector(".player-card__role").textContent = "Role";
-    card.querySelector(".player-card__image").src = "assets/heroes/hero-placeholder.svg";
-    card.querySelector(".player-card__image").alt = "Hero belum dipilih";
+    card.querySelector(".player-card__role").textContent = "Role Hero";
+    image.onerror = null;
+    image.src = "assets/heroes/hero-placeholder.svg";
+    image.alt = "Hero belum dipilih";
   });
 }
 

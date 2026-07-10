@@ -54,7 +54,7 @@
         <div class="hero__content fade-in">
           <p class="hero__eyebrow">
             <i class="fa-solid fa-bolt"></i>
-            Land of Dawn Draft Tool
+            Land of Dawn Draft Tool Konthol
           </p>
           <h1>
             🎮 MOBILE LEGENDS
@@ -65,7 +65,7 @@
           </p>
           <p class="hero__description">
             Masukkan nama 5 player, tekan random, lalu biarkan sistem memilih hero berbeda
-            untuk setiap pemain tanpa duplikat dalam satu sesi.
+            untuk setiap pemain.
           </p>
           <div class="hero__actions">
             <button class="button button--primary ripple-button" id="startPickButton" type="button">
@@ -85,7 +85,7 @@
             <strong>5 Players</strong>
           </div>
           <div class="hero-card hero-card--main">
-            <img src="assets/heroes/hero-placeholder.svg" alt="Ilustrasi hero Mobile Legends">
+            <img src="assets/icons/allhero.png" alt="Ilustrasi hero Mobile Legends">
             <div>
               <span>Random Pool</span>
               <strong id="heroPoolCount">133 Heroes</strong>
@@ -114,22 +114,27 @@
         <div class="player-inputs reveal" aria-label="Input nama player">
           <label class="player-input">
             <span>Player 1</span>
+            <strong>Jungle</strong>
             <input type="text" class="player-name-input" placeholder="Masukkan nama player" data-player="1">
           </label>
           <label class="player-input">
             <span>Player 2</span>
+            <strong>Mid Lane</strong>
             <input type="text" class="player-name-input" placeholder="Masukkan nama player" data-player="2">
           </label>
           <label class="player-input">
             <span>Player 3</span>
+            <strong>Gold Lane</strong>
             <input type="text" class="player-name-input" placeholder="Masukkan nama player" data-player="3">
           </label>
           <label class="player-input">
             <span>Player 4</span>
+            <strong>EXP Lane</strong>
             <input type="text" class="player-name-input" placeholder="Masukkan nama player" data-player="4">
           </label>
           <label class="player-input">
             <span>Player 5</span>
+            <strong>Roam</strong>
             <input type="text" class="player-name-input" placeholder="Masukkan nama player" data-player="5">
           </label>
         </div>
@@ -161,56 +166,61 @@
           <article class="player-card reveal" data-card="1">
             <div class="player-card__avatar">P1</div>
             <p class="player-card__label">Player 1</p>
+            <span class="player-card__lane">Jungle</span>
             <h3 class="player-card__name">Player 1</h3>
             <div class="player-card__image-wrap">
               <img src="assets/heroes/hero-placeholder.svg" alt="Hero belum dipilih" class="player-card__image">
             </div>
             <p class="player-card__hero">Belum Dipilih</p>
-            <span class="player-card__role">Role</span>
+            <span class="player-card__role">Role Hero</span>
           </article>
 
           <article class="player-card reveal" data-card="2">
             <div class="player-card__avatar">P2</div>
             <p class="player-card__label">Player 2</p>
+            <span class="player-card__lane">Mid Lane</span>
             <h3 class="player-card__name">Player 2</h3>
             <div class="player-card__image-wrap">
               <img src="assets/heroes/hero-placeholder.svg" alt="Hero belum dipilih" class="player-card__image">
             </div>
             <p class="player-card__hero">Belum Dipilih</p>
-            <span class="player-card__role">Role</span>
+            <span class="player-card__role">Role Hero</span>
           </article>
 
           <article class="player-card reveal" data-card="3">
             <div class="player-card__avatar">P3</div>
             <p class="player-card__label">Player 3</p>
+            <span class="player-card__lane">Gold Lane</span>
             <h3 class="player-card__name">Player 3</h3>
             <div class="player-card__image-wrap">
               <img src="assets/heroes/hero-placeholder.svg" alt="Hero belum dipilih" class="player-card__image">
             </div>
             <p class="player-card__hero">Belum Dipilih</p>
-            <span class="player-card__role">Role</span>
+            <span class="player-card__role">Role Hero</span>
           </article>
 
           <article class="player-card reveal" data-card="4">
             <div class="player-card__avatar">P4</div>
             <p class="player-card__label">Player 4</p>
+            <span class="player-card__lane">EXP Lane</span>
             <h3 class="player-card__name">Player 4</h3>
             <div class="player-card__image-wrap">
               <img src="assets/heroes/hero-placeholder.svg" alt="Hero belum dipilih" class="player-card__image">
             </div>
             <p class="player-card__hero">Belum Dipilih</p>
-            <span class="player-card__role">Role</span>
+            <span class="player-card__role">Role Hero</span>
           </article>
 
           <article class="player-card reveal" data-card="5">
             <div class="player-card__avatar">P5</div>
             <p class="player-card__label">Player 5</p>
+            <span class="player-card__lane">Roam</span>
             <h3 class="player-card__name">Player 5</h3>
             <div class="player-card__image-wrap">
               <img src="assets/heroes/hero-placeholder.svg" alt="Hero belum dipilih" class="player-card__image">
             </div>
             <p class="player-card__hero">Belum Dipilih</p>
-            <span class="player-card__role">Role</span>
+            <span class="player-card__role">Role Hero</span>
           </article>
         </div>
       </div>
@@ -225,6 +235,8 @@
           <p>
             Aplikasi ini memakai JavaScript murni, Fisher-Yates shuffle, dan pool hero lengkap agar
             setiap player mendapat hero berbeda dalam satu sesi random.
+
+            </br></br>Kritik dan Saran : resaerlangga41@gmail.com
           </p>
         </div>
         <div class="about__features reveal">
@@ -257,7 +269,7 @@
         <img src="assets/icons/ml-logo.svg" alt="Logo Mobile Legends Picker">
         <span>ML Random Hero Picker</span>
       </a>
-      <p>Copyright © 2026. Built with HTML5, CSS3, and Vanilla JavaScript.</p>
+      <p>Copyright © 2026. Created by Resae</p>
     </div>
   </footer>
 
