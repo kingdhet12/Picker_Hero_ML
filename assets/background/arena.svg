@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Fantasy Battle Arena Background</title>
+  <desc id="desc">Ilustrasi arena fantasy untuk background random hero picker.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#071A3D"/>
+      <stop offset="45%" stop-color="#20124A"/>
+      <stop offset="100%" stop-color="#050815"/>
+    </linearGradient>
+    <radialGradient id="portal" cx="50%" cy="42%" r="38%">
+      <stop offset="0%" stop-color="#26A7FF" stop-opacity=".65"/>
+      <stop offset="45%" stop-color="#7C3CFF" stop-opacity=".26"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#sky)"/>
+  <circle cx="800" cy="380" r="380" fill="url(#portal)"/>
+  <path d="M0 700c220-70 388-78 560-24 149 47 288 42 440-8 214-70 385-28 600 50v282H0V700Z" fill="#06102A"/>
+  <path d="M0 770c260-80 446-74 650 0 144 52 282 48 418-2 196-72 354-42 532 44v188H0V770Z" fill="#091A3D"/>
+  <path d="M125 650h260l-48 154H173L125 650Z" fill="#101A3F"/>
+  <path d="M1215 650h260l-48 154h-164l-48-154Z" fill="#101A3F"/>
+  <path d="M212 536h82v116h-82zM1306 536h82v116h-82z" fill="#162A62"/>
+  <path d="M232 536l21-64 21 64h-42ZM1326 536l21-64 21 64h-42Z" fill="#F6C85F"/>
+  <ellipse cx="800" cy="790" rx="390" ry="88" fill="#08112B"/>
+  <ellipse cx="800" cy="790" rx="270" ry="54" fill="#13265A"/>
+  <path d="M475 790h650M560 752l-58 96M1040 752l58 96" stroke="#F6C85F" stroke-width="10" stroke-linecap="round" opacity=".65"/>
+  <g opacity=".6">
+    <circle cx="284" cy="240" r="5" fill="#F6C85F"/>
+    <circle cx="448" cy="174" r="4" fill="#26A7FF"/>
+    <circle cx="1146" cy="210" r="5" fill="#F6C85F"/>
+    <circle cx="1324" cy="302" r="4" fill="#26A7FF"/>
+    <circle cx="956" cy="120" r="5" fill="#ffffff"/>
+    <circle cx="678" cy="214" r="4" fill="#ffffff"/>
+  </g>
+</svg>

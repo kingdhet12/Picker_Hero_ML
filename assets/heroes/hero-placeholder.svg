@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 520" role="img" aria-labelledby="title desc">
+  <title id="title">Hero Placeholder</title>
+  <desc id="desc">Placeholder hero bergaya game dengan aura emas.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#071A3D"/>
+      <stop offset="55%" stop-color="#311A72"/>
+      <stop offset="100%" stop-color="#C99B3E"/>
+    </linearGradient>
+    <radialGradient id="aura" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".36"/>
+      <stop offset="55%" stop-color="#F6C85F" stop-opacity=".22"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="520" height="520" rx="44" fill="url(#bg)"/>
+  <circle cx="260" cy="184" r="190" fill="url(#aura)"/>
+  <path d="M72 438c25-106 104-166 188-166s163 60 188 166H72Z" fill="#050815" opacity=".8"/>
+  <path d="M150 226l64-86 46 64 46-64 64 86-48 64H198l-48-64Z" fill="#F6C85F"/>
+  <circle cx="260" cy="214" r="88" fill="#0B1433" opacity=".75"/>
+  <path d="M230 208h60M260 178v60" stroke="#ffffff" stroke-width="18" stroke-linecap="round"/>
+  <rect x="98" y="388" width="324" height="58" rx="29" fill="#050815" opacity=".72"/>
+  <text x="260" y="426" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="24" font-weight="800" fill="#FFE9A4">RANDOM HERO</text>
+</svg>

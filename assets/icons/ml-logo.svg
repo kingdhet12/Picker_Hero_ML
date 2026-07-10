@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title desc">
+  <title id="title">ML Picker Logo</title>
+  <desc id="desc">Logo game picker dengan warna biru, ungu, dan emas.</desc>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#26A7FF"/>
+      <stop offset="55%" stop-color="#7C3CFF"/>
+      <stop offset="100%" stop-color="#F6C85F"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="28" fill="#050815"/>
+  <path d="M24 84 35 28h16l9 27 9-27h16l11 56H78l-5-28-10 28h-6L47 56l-5 28H24Z" fill="url(#g)"/>
+  <path d="M31 95h58" stroke="#F6C85F" stroke-width="8" stroke-linecap="round"/>
+</svg>

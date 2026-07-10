@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mobile Legends Random Hero Picker untuk memilih hero acak bagi 5 pemain.">
+  <title>Mobile Legends Random Hero Picker</title>
+
+  <!-- Google Font dan Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <!-- Asset dan stylesheet utama -->
+  <link rel="icon" href="assets/icons/ml-logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-mode">
+  <!-- Particle Background -->
+  <canvas class="particle-canvas" id="particleCanvas" aria-hidden="true"></canvas>
+
+  <!-- Navbar -->
+  <header class="site-header" id="siteHeader">
+    <nav class="navbar container" aria-label="Navigasi utama">
+      <a href="#home" class="navbar__brand" aria-label="Mobile Legends Random Hero Picker">
+        <img src="assets/icons/ml-logo.svg" alt="Logo Mobile Legends Picker">
+        <span>ML Picker</span>
+      </a>
+
+      <button class="navbar__toggle" id="navbarToggle" type="button" aria-label="Buka menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="navbar__menu" id="navbarMenu">
+        <li><a href="#home" class="navbar__link active">Home</a></li>
+        <li><a href="#picker" class="navbar__link">Hero Picker</a></li>
+        <li><a href="#about" class="navbar__link">About</a></li>
+      </ul>
+
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero section" id="home">
+      <div class="hero__overlay"></div>
+      <div class="container hero__grid">
+        <div class="hero__content fade-in">
+          <p class="hero__eyebrow">
+            <i class="fa-solid fa-bolt"></i>
+            Land of Dawn Draft Tool
+          </p>
+          <h1>
+            🎮 MOBILE LEGENDS
+            <span>RANDOM HERO PICKER</span>
+          </h1>
+          <p class="hero__subtitle">
+            Pilih hero secara acak untuk seluruh tim sebelum bermain.
+          </p>
+          <p class="hero__description">
+            Masukkan nama 5 player, tekan random, lalu biarkan sistem memilih hero berbeda
+            untuk setiap pemain tanpa duplikat dalam satu sesi.
+          </p>
+          <div class="hero__actions">
+            <button class="button button--primary ripple-button" id="startPickButton" type="button">
+              <i class="fa-solid fa-play"></i>
+              Start Random Pick
+            </button>
+            <a href="#picker" class="button button--ghost ripple-button">
+              <i class="fa-solid fa-users"></i>
+              Isi Player
+            </a>
+          </div>
+        </div>
+
+        <div class="hero__panel fade-in">
+          <div class="hero-card hero-card--top">
+            <span>Team Setup</span>
+            <strong>5 Players</strong>
+          </div>
+          <div class="hero-card hero-card--main">
+            <img src="assets/heroes/hero-placeholder.svg" alt="Ilustrasi hero Mobile Legends">
+            <div>
+              <span>Random Pool</span>
+              <strong id="heroPoolCount">133 Heroes</strong>
+            </div>
+          </div>
+          <div class="hero-card hero-card--bottom">
+            <i class="fa-solid fa-shuffle"></i>
+            <span>No Duplicate Heroes</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Picker Section -->
+    <section class="picker section" id="picker">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-label">Hero Picker</span>
+          <h2>Siapkan Tim dan Mulai Random</h2>
+          <p>
+            Isi nama player, lalu gunakan tombol random untuk mendapatkan hero berbeda bagi setiap pemain.
+          </p>
+        </div>
+
+        <!-- Input Player -->
+        <div class="player-inputs reveal" aria-label="Input nama player">
+          <label class="player-input">
+            <span>Player 1</span>
+            <input type="text" class="player-name-input" placeholder="Masukkan nama player" data-player="1">
+          </label>
+          <label class="player-input">
+            <span>Player 2</span>
+            <input type="text" class="player-name-input" placeholder="Masukkan nama player" data-player="2">
+          </label>
+          <label class="player-input">
+            <span>Player 3</span>
+            <input type="text" class="player-name-input" placeholder="Masukkan nama player" data-player="3">
+          </label>
+          <label class="player-input">
+            <span>Player 4</span>
+            <input type="text" class="player-name-input" placeholder="Masukkan nama player" data-player="4">
+          </label>
+          <label class="player-input">
+            <span>Player 5</span>
+            <input type="text" class="player-name-input" placeholder="Masukkan nama player" data-player="5">
+          </label>
+        </div>
+
+        <!-- Tombol Aksi -->
+        <div class="picker-actions reveal">
+          <button class="button button--primary ripple-button" id="randomButton" type="button">
+            <i class="fa-solid fa-dice"></i>
+            Random Hero
+          </button>
+          <button class="button button--secondary ripple-button" id="rerollButton" type="button">
+            <i class="fa-solid fa-rotate"></i>
+            Random Ulang
+          </button>
+          <button class="button button--danger ripple-button" id="resetButton" type="button">
+            <i class="fa-solid fa-trash"></i>
+            Reset
+          </button>
+        </div>
+
+        <!-- Loading -->
+        <div class="loading-panel" id="loadingPanel" aria-live="polite">
+          <div class="loading-spinner"></div>
+          <span>Choosing Hero...</span>
+        </div>
+
+        <!-- Card Player -->
+        <div class="player-grid" id="playerGrid">
+          <article class="player-card reveal" data-card="1">
+            <div class="player-card__avatar">P1</div>
+            <p class="player-card__label">Player 1</p>
+            <h3 class="player-card__name">Player 1</h3>
+            <div class="player-card__image-wrap">
+              <img src="assets/heroes/hero-placeholder.svg" alt="Hero belum dipilih" class="player-card__image">
+            </div>
+            <p class="player-card__hero">Belum Dipilih</p>
+            <span class="player-card__role">Role</span>
+          </article>
+
+          <article class="player-card reveal" data-card="2">
+            <div class="player-card__avatar">P2</div>
+            <p class="player-card__label">Player 2</p>
+            <h3 class="player-card__name">Player 2</h3>
+            <div class="player-card__image-wrap">
+              <img src="assets/heroes/hero-placeholder.svg" alt="Hero belum dipilih" class="player-card__image">
+            </div>
+            <p class="player-card__hero">Belum Dipilih</p>
+            <span class="player-card__role">Role</span>
+          </article>
+
+          <article class="player-card reveal" data-card="3">
+            <div class="player-card__avatar">P3</div>
+            <p class="player-card__label">Player 3</p>
+            <h3 class="player-card__name">Player 3</h3>
+            <div class="player-card__image-wrap">
+              <img src="assets/heroes/hero-placeholder.svg" alt="Hero belum dipilih" class="player-card__image">
+            </div>
+            <p class="player-card__hero">Belum Dipilih</p>
+            <span class="player-card__role">Role</span>
+          </article>
+
+          <article class="player-card reveal" data-card="4">
+            <div class="player-card__avatar">P4</div>
+            <p class="player-card__label">Player 4</p>
+            <h3 class="player-card__name">Player 4</h3>
+            <div class="player-card__image-wrap">
+              <img src="assets/heroes/hero-placeholder.svg" alt="Hero belum dipilih" class="player-card__image">
+            </div>
+            <p class="player-card__hero">Belum Dipilih</p>
+            <span class="player-card__role">Role</span>
+          </article>
+
+          <article class="player-card reveal" data-card="5">
+            <div class="player-card__avatar">P5</div>
+            <p class="player-card__label">Player 5</p>
+            <h3 class="player-card__name">Player 5</h3>
+            <div class="player-card__image-wrap">
+              <img src="assets/heroes/hero-placeholder.svg" alt="Hero belum dipilih" class="player-card__image">
+            </div>
+            <p class="player-card__hero">Belum Dipilih</p>
+            <span class="player-card__role">Role</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section" id="about">
+      <div class="container about__grid">
+        <div class="about__content reveal">
+          <span class="section-label">About</span>
+          <h2>Random draft cepat untuk squad sebelum masuk match.</h2>
+          <p>
+            Aplikasi ini memakai JavaScript murni, Fisher-Yates shuffle, dan pool hero lengkap agar
+            setiap player mendapat hero berbeda dalam satu sesi random.
+          </p>
+        </div>
+        <div class="about__features reveal">
+          <div>
+            <i class="fa-solid fa-layer-group"></i>
+            <span>133 Hero Pool</span>
+          </div>
+          <div>
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span>Shuffle Animation</span>
+          </div>
+          <div>
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>No Duplicate Pick</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Back To Top -->
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Kembali ke atas">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__content">
+      <a href="#home" class="footer__brand">
+        <img src="assets/icons/ml-logo.svg" alt="Logo Mobile Legends Picker">
+        <span>ML Random Hero Picker</span>
+      </a>
+      <p>Copyright © 2026. Built with HTML5, CSS3, and Vanilla JavaScript.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript utama -->
+  <script src="script.js"></script>
+</body>
+</html>
