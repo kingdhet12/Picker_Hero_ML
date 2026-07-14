@@ -17,11 +17,15 @@ Aplikasi ini membantu pemain Mobile Legends memilih hero secara acak untuk **5 p
 
 **Demo Website**
 
-[https://username.github.io/mobile-legends-random-hero-picker/](https://picker-hero-ml.vercel.app/)
+https://picker-hero-ml.vercel.app/
 
 **Repository**
 
 https://github.com/kingdhet12/Picker_Hero_ML
+
+**Support Admin**
+
+💵 💰 https://saweria.co/resae
 
 
 
@@ -30,6 +34,9 @@ https://github.com/kingdhet12/Picker_Hero_ML
 # 📸 Preview
 
 ![Preview](assets/icons/preview.jpeg)
+<img width="1425" height="765" alt="image" src="https://github.com/user-attachments/assets/7171dee7-3e2f-4312-930a-f17bbb6cc569" />
+<img width="1425" height="818" alt="image" src="https://github.com/user-attachments/assets/31d6f79e-a5dd-412c-afa0-12f7220d508e" />
+
 
 
 ---
